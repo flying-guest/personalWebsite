@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="康文昌的个人网站。《Re01:从零开始的编程之路》作者，元岛DAO midorg.com 发起人，清林云baasapi.com 创始人，多家企业数字化顾问。">
   <title>Document</title>
+  <meta name="keywords" content="康文昌,元岛,清林云,Re01,从零开始的编程之路">
+  <link rel="manifest" href="./manifest.json">
   <style>
     body{
       margin: 0;
@@ -12,36 +15,32 @@
   </style>
 </head>
 <body>
-  
-    <div style="
-      background-color: #f3f0f3;
-      text-align: center;
-      padding:40px;
-    ">
-      <img src="https://kangwenchang.com/logo.png" alt="(...vibe)"  width="80px" height="80px">
-    </div>
-  <div style="
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 15px;
-    line-height: 1.7; 
-    ">
-    <p>我的网站</p>
-    <p>我的网站</p>
-    <p>我的网站</p>
-    <p>我的网站</p>
-    
+  <div style="display: flex;justify-content: center;padding: 60px; background-color: #f1f1f1;">
+    <img src="https://kangwenchang.com/logo.png" alt="(...vibe)" width="80px" height="80px">
   </div>
-  
-
+  <div style="max-width:700px;margin:30px auto;padding: 15px;line-height:1.7">
+    <p>我的网站</p>
+    <p>我的网站</p>
+    <p>我的网站</p>
+    <p>我的网站</p>
+  </div>
   <div style="
-  background-color: #f1f1f1;
   text-align: center;
   padding: 40px;
-  font-size: 12px;
+  font-size: 16px;
+  background-color: #f1f1f1;
   ">
     <p>我的网站</p>
-    <a href="www.baidu.com">友情链接</a>
+    <a href="./pages/Green little old man.html">友情链接</a>
+
   </div>
+
+  <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
 </body>
 </html>
