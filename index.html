@@ -4,50 +4,73 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="vibe的个人网站。" />
-    <title>Document</title>
-    <meta name="keywords" content="vibe,vibe的留言板" />
-
+    <title>vibe的起始页</title>
     <style>
-      body {
+      * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url(./images/iTab-.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+      .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #event {
+        border: 0;
+        border-bottom: 4px solid #000;
+        outline: none;
+        text-align: center;
+        font-size: 2rem;
+      }
+      #symbol {
+        text-align: center;
+        font-size: 2rem;
       }
     </style>
   </head>
   <body>
-    <div
-      style="
-        display: flex;
-        justify-content: center;
-        padding: 60px;
-        background-color: #f1f1f1;
-      "
-    >
-      <img src="./康文昌.jpg" alt="(...vibe)" width="80px" height="80px" />
+    <div class="box">
+      <input type="text" placeholder="当前最重要的事" id="event" />
+      <span id="symbol" onclick="change()">√</span>
     </div>
-    <div
-      style="
-        max-width: 700px;
-        margin: 30px auto;
-        padding: 15px;
-        line-height: 1.7;
-      "
-    >
-      <p>我的网站</p>
-      <p>我的网站</p>
-      <p>我的网站</p>
-      <p>我的网站</p>
-    </div>
-    <div
-      style="
-        text-align: center;
-        padding: 40px;
-        font-size: 16px;
-        background-color: #f1f1f1;
-      "
-    >
-      <p>我的网站</p>
-      <a href="https://www.baidu.com/">友情链接</a>
-    </div>
+    <script>
+      let you = false;
+
+      function change() {
+        let event = document.querySelector("#event");
+        let symbol = document.querySelector("#symbol");
+        if (you) {
+          you = false;
+          event.value = "";
+          event.style.borderBottomColor = "#000";
+          symbol.innerHTML = "√";
+          event.readOnly = false;
+          window.localStorage.removeItem("event");
+        } else {
+          you = true;
+          event.style.borderBottomColor = "transparent";
+          symbol.innerHTML = "×";
+          event.readOnly = true;
+          window.localStorage.setItem("event", event.value);
+        }
+      }
+      let data = window.localStorage.getItem("event");
+      if (data) {
+        you = false;
+        document.querySelector("#event").value = data;
+        change();
+      }
+    </script>
   </body>
 </html>
